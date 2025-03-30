@@ -8,7 +8,6 @@ const bookSchema = new mongoose.Schema({
     cover: { type: String, required: true },
     likes: { type: Number, default: 0 },
     reviews: { type: Array, default: [] },
-    uploaded: { type: Date, default: null },
 }, { timestamps: true });
 
 const Book = mongoose.model("Book", bookSchema);
