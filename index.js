@@ -10,18 +10,20 @@ dotenv.config();
 
 
 const app = express();
-// app.use(
-//     cors({
-//         origin: process.env.ORIGIN || 'http://localhost:3000',
-//         credentials: true,
-//     })
-// );
+app.use(
+    cors({
+        origin: process.env.ORIGIN || 'http://localhost:3000',
+        credentials: true,
+    })
+);
 
 // app.use(cors({ origin: "http://localhost:3000" }));
-app.use(cors({ origin: "https://book-store-app-client-972j.onrender.com" }));
+// app.use(cors({ origin: "https://book-store-app-client-972j.onrender.com" }));
 
 
-const MONGO_URI = "mongodb+srv://bookStoreAppServer:eyw1oPKpBpLva7np@bookstoreapp.eqwxrms.mongodb.net/?retryWrites=true&w=majority&appName=bookStoreApp";
+// const MONGO_URI = "mongodb+srv://bookStoreAppServer:eyw1oPKpBpLva7np@bookstoreapp.eqwxrms.mongodb.net/?retryWrites=true&w=majority&appName=bookStoreApp";
+
+const MONGO_URI = `mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_USER_PASS}@bookstoreapp.eqwxrms.mongodb.net/?retryWrites=true&w=majority&appName=bookStoreApp`;
 
 // MongoDB client setup
 async function run() {
